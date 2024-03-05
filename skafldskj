@@ -1,0 +1,8 @@
+// tworzenie elementu nawigacji //
+<button>
+  <p class="navigation__number navigation--active">1</p>
+  <div>
+    <p>STEP <span class="step"></span></p>
+    <h2 class="nav__title">YOUR INFO</h2>
+  </div>
+</button>
