@@ -4,10 +4,11 @@ const state = {
     email: '',
     phoneNumber: '',
   },
-  selectedPlanId: '0',
+
+  selectedPlanId: '1',
   selectedPlanVariant: 'yearly',
   // selectedPlanVariant: 'monthly',
-  addOns: [0, 1, 2],
+  addOns: [1, 2],
 };
 
 const defult = {
@@ -17,6 +18,11 @@ const defult = {
     id: 1,
     id: 2,
   },
+};
+
+const user = {
+  name: 'Dawid',
+  surname: 'K',
 };
 
 const available = [

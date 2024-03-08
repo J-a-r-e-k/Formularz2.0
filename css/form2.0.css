@@ -533,7 +533,6 @@ body {
   position: relative;
 }
 .addOns__check img {
-  display: none;
   margin: 0;
   position: absolute;
   top: 50%;
