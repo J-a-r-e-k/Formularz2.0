@@ -198,9 +198,15 @@
 .form__element--addOns {
   justify-content: space-around;
   padding: 3% 2%;
+  @media (orientation: landscape) and (max-width: 1000px) {
+    margin: 2% 0 0 0;
+  }
 }
 .form__descriotion--addOns {
   flex-basis: 80%;
+  @media (orientation: landscape) and (max-width: 1000px) {
+    margin: 0 auto 0 5%;
+  }
 }
 .addOns__descriotion {
   font-size: 1.3em;
@@ -215,8 +221,10 @@
   height: 2em;
   width: 2em;
   position: relative;
+  @media (orientation: landscape) and (max-width: 1000px) {
+    margin: 0 auto;
+  }
   img {
-    // display: none;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -233,9 +241,6 @@
   border-radius: 10px 10px 0 0;
   padding: 3% 3% 0;
   position: relative;
-  @media (orientation: landscape) and (max-width: 1000px) {
-    padding: 0 3%;
-  }
 }
 .change {
   margin-bottom: 2%;
