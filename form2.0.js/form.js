@@ -204,6 +204,20 @@ const summary = () => {
 };
 summary();
 
+//Podziękowanie//
+const thank = () => {
+  document.querySelectorAll('.window__btn').forEach((btn) => {
+    btn.style.display = 'none';
+  });
+
+  const form = document.querySelector('.form');
+  form.innerHTML = `<div class='thankYou'><img src="images/icon-thank-you.svg" alt="planBasic"/>
+               <h3 class="form__title">Thank you!</h3>
+               <p class="form__money">
+                Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.
+                 </p></div>`;
+};
+
 const section = document.querySelectorAll('.form__step');
 const navigationNumber = document.querySelectorAll('.navigation__number');
 let indeks = 0;
@@ -213,14 +227,41 @@ const nav = () => {
   navigationNumber.forEach((elementNav) =>
     elementNav.classList.remove('navigation__number--active')
   );
-  section[indeks].style.display = 'block';
-  navigationNumber[indeks].classList.add('navigation__number--active');
+  if (indeks == available.length) {
+    thank();
+    return;
+  } else {
+    section[indeks].style.display = 'block';
+    navigationNumber[indeks].classList.add('navigation__number--active');
+  }
+  //aktywacja przycisku Go Back//
+  {
+    const back = document.querySelector('.window__btn--back');
+    back.style.display = 'block';
+    if (indeks == 0) {
+      back.style.display = 'none';
+    }
+  }
+
+  //Zmiana content w btn ostatnim step//
+  {
+    const next = document.querySelector('.window__btn--next');
+    next.innerHTML = `Next Step`;
+    next.style.backgroundColor = 'hsl(213, 96%, 18%)';
+
+    if (indeks == available.length - 1) {
+      next.innerHTML = `Confirm`;
+      next.style.backgroundColor = 'hsl(228, 100%, 84%)';
+      next.style.backgroundColor = 'rgb(146 140 254)';
+    }
+  }
 };
 nav();
 document.querySelector('.window__btn--next').addEventListener('click', () => {
   state.userInfo.name = document.getElementById(1).value;
   state.userInfo.email = document.getElementById(2).value;
   state.userInfo.phoneNumber = document.getElementById(3).value;
+
   {
     const testReg = [];
     const regName = /^[a-zA-Z]+(\s*[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]*)*$/;
@@ -242,13 +283,15 @@ document.querySelector('.window__btn--next').addEventListener('click', () => {
     if (!personInfo) {
       testReg.forEach((test, kay) => {
         const text = dataUser[kay].childNodes;
-        text[0].textContent = `Requires ${text[4].name}`;
-        text[4].style.borderColor = 'red';
+        if (test === false) {
+          text[0].textContent = `Requires ${text[4].name}`;
+          text[4].style.borderColor = 'red';
+        }
       });
       return;
     }
   }
-  if (indeks < available.length - 1) {
+  if (indeks < available.length) {
     indeks++;
     nav();
   }
@@ -257,35 +300,6 @@ document.querySelector('.window__btn--next').addEventListener('click', () => {
 document.querySelector('.window__btn--back').addEventListener('click', () => {
   if (indeks > 0) {
     indeks--;
+    nav();
   }
-  nav();
 });
-
-// const aaa = () => {
-//   const testReg = [];
-//   const regName = /^[a-zA-Z]+(\s*[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]*)*$/;
-//   const regEmail =
-//     /^[a-z\d]+[\w\d.-]*@(?:[a-z\d]+[a-z\d-]+\.){1,5}[a-z]{2,6}$/i;
-//   const regNr = /^([+]\d{2})?[- ]?(\d{3})[- ]?(\d{3})[- ]?(\d{3})$/;
-
-//   testReg.push(regName.test(state.userInfo.name.trim()));
-//   testReg.push(regEmail.test(state.userInfo.email.trim()));
-//   testReg.push(regNr.test(state.userInfo.phoneNumber.trim()));
-
-//   const personInfo = testReg.every((e) => e === true); // sprawca czy wsztstkie testy ta prawdziwe
-//   // console.log(personInfo);
-//   const dataUser = document.querySelectorAll('.info');
-//   dataUser.forEach((ooo) => {
-//     ooo.childNodes[4].style.borderColor = '#777';
-//     ooo.childNodes[0].textContent = '';
-//   });
-//   if (!personInfo) {
-//     testReg.forEach((test, kay) => {
-//       const text = dataUser[kay].childNodes;
-//       text[0].textContent = `Requires ${text[4].name}`;
-//       text[4].style.borderColor = 'red';
-//     });
-//     return;
-//   }
-//   nav();
-// };

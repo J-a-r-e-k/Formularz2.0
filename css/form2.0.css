@@ -342,6 +342,7 @@ body {
 
 .info {
   margin-top: 6px;
+  position: relative;
 }
 .info input {
   width: 100%;
@@ -360,6 +361,13 @@ body {
     padding: 0px 3%;
     font-size: 1.5em;
   }
+}
+
+.info__requier {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: red;
 }
 
 .infoName {
@@ -650,4 +658,35 @@ body {
   font-size: 2rem;
   color: #5047fa;
   font-weight: bold;
+}
+
+.thankYou {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  height: 70%;
+}
+.thankYou img {
+  display: block;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 10px auto;
+}
+.thankYou h3 {
+  text-align: center;
+  font-size: 2em;
+  margin: 10px 0;
+}
+.thankYou p {
+  text-align: center;
+  font-size: 1.4em;
+  margin: 10px 0;
 }/*# sourceMappingURL=form2.0.css.map */

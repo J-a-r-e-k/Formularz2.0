@@ -145,21 +145,3 @@ const available = [
   },
 ];
 
-// const avaialbeAddons = [
-//   {
-//     id: 1,
-//     title: 'Addon 1',
-//     price: {
-//       yearly: 120,
-//       monthly: 10,
-//     },
-//   },
-//   {
-//     id: 2,
-//     title: 'Addon 2',
-//     price: {
-//       yearly: 120,
-//       monthly: 12,
-//     },
-//   },
-// ];
