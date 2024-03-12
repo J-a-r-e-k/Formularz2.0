@@ -138,10 +138,11 @@ const additionse = () => {
 
     const div = document.createElement('div');
     div.className = 'addOns__check';
-    div.innerHTML = `<img src="/images/icon-checkmark.svg" alt="icon check" />`;
+
     if (state.addOns.includes(addOns.id)) {
       button.style.backgroundColor = 'hsl(217, 100%, 97%)';
       div.style.backgroundColor = '#022a61';
+      div.innerHTML = `<img src="images/icon-checkmark.svg" alt="icon check" />`;
     }
     button.innerHTML = `${div.outerHTML}
     <div class="form__descriotion form__descriotion--addOns">
